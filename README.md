@@ -7,7 +7,6 @@ This repository is a collection of projects that showcase practical data enginee
 
 The aim of this repository is to show how data engineering work turns raw, messy, or fragmented information into structured outputs that can be used for analysis, reporting, and downstream business decisions.
 
-## Current project
 
 ### [Day 1: Duka Connect Analytics](day1-api-extraction)
 
@@ -35,47 +34,6 @@ data-engineering-projects/
 │       └── customers_clean.csv
 ```
 
-## Day 1 workflow
-
-The first project follows a simple but important data engineering flow:
-
-1. Fetch data from the API.
-2. Check that the request succeeded.
-3. Validate the response body.
-4. Inspect the structure of the records.
-5. Pull the required customer information.
-6. Flatten nested fields such as address and company details.
-7. Convert the output to a pandas DataFrame.
-8. Save the final result as a CSV.
-
-## Skills demonstrated
-
-This project shows a useful set of core data engineering capabilities:
-
-- API extraction
-- Data validation
-- Handling nested JSON
-- Recursive flattening
-- Data cleaning and normalization
-- Pandas-based transformation
-- CSV output for analytics use cases
-
-## Quick start
-
-From the project root, run:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r day1-api-extraction/requirements.txt
-python day1-api-extraction/extract_customers.py
-```
-
-The output file is generated here:
-
-```text
-day1-api-extraction/output/customers_clean.csv
-```
 
 ## Roadmap
 
