@@ -1,29 +1,24 @@
+# Data Engineering Projects
 
-# Simple DE Projects
+This repository holds the data engineering projects I build as I learn. Each project takes messy or scattered input and produces a clean file that someone can analyse. Every project lives in its own folder with its own README.
 
-This repository is a collection of projects that showcase practical data engineering skills. It is meant to capture the work I have done so far and provide a structure for future projects as I continue to build on the same foundations.
+## Projects
 
-## Purpose
+### Day 1: Duka Connect customer extraction
 
-The aim of this repository is to show how data engineering work turns raw, messy, or fragmented information into structured outputs that can be used for analysis, reporting, and downstream business decisions.
+[day1-api-extraction](day1-api-extraction)
 
+A Nairobi distributor needs customer records from a partner API in a flat format. `extract_customers.py` calls the API with `requests`, checks the HTTP response and the JSON payload, keeps the fields needed for analysis, flattens the nested JSON with `pandas`, and writes `output/customers_clean.csv`. The distributor can join that file with its internal data.
 
-### [Day 1: Duka Connect Analytics](day1-api-extraction)
+### Day 2: Soko Fresh daily till export
 
-This is the first project in the portfolio. It focuses on a real-world scenario in which a Nairobi-based distributor needs customer records from a partner API in a flat and analysis-ready format.
+[day2-multi-file-pipeline](day2-multi-file-pipeline)
 
-The project includes the following work:
-
-- Pulling data from a REST API
-- Validating the HTTP response and JSON payload
-- Reviewing the structure of the source data
-- Extracting the fields needed for analysis
-- Flattening nested JSON into a simple tabular format
-- Exporting a cleaned CSV for joining with internal business data
+Soko Fresh has branches in Nairobi, Mombasa, Kisumu and Nakuru. Each branch exports a `transactions_*.csv` file from its till every day. `pipeline.py` reads all of them and writes a consolidated CSV of valid rows, a separate CSV of rejected rows, and a summary of the run. It uses only the Python standard library, so there is nothing to install.
 
 ## Repository layout
 
-```text
+```
 data-engineering-projects/
 ├── README.md
 ├── day1-api-extraction/
@@ -32,20 +27,20 @@ data-engineering-projects/
 │   ├── requirements.txt
 │   └── output/
 │       └── customers_clean.csv
+└── day2-multi-file-pipeline/
+    ├── README.md
+    └── pipeline.py
 ```
 
+## Running a project
+
+Open the project folder and follow its README. Day 1 needs the packages in its `requirements.txt`. Day 2 needs only Python 3.
 
 ## Roadmap
 
-This repository is designed to grow into a broader portfolio of data engineering work. Future projects will likely cover topics such as:
+Later projects will cover:
 
-- ETL pipelines
-- Data quality checks
 - SQL and warehouse workflows
 - Data modeling
 - Reporting and visualization
-- Automation and workflow orchestration
-
-## Notes
-
-This first project is a practical starting point. It is meant to show a clear and useful workflow from raw API data to a cleaned, usable dataset that can support analysis and downstream reporting.
+- Workflow automation and scheduling
