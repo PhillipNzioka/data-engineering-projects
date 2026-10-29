@@ -43,10 +43,8 @@ def discover_files(folder: Path, pattern: str = "transactions_*.csv") -> list[Pa
 
     if not folder.is_dir():
         logger.warning('Input folder does not exist')
-    print('DISCOVERING FILES: ')
     for path in folder.glob(pattern):
         if path.is_file():
-            print(path.name) # file name inside path
             discovered.append(path) # add path to discovered
 
     # sorting the files using dates
